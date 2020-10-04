@@ -50,6 +50,7 @@ export function UserList() {
 
   const [pointer, setPointer] = useState(LIMIT);
 
+  // TODO: use specific type here
   const handleSearch = (e: any) => {
     const { value } = e.target;
 
