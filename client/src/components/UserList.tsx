@@ -50,10 +50,7 @@ export function UserList() {
 
   const [pointer, setPointer] = useState(LIMIT);
 
-  // TODO: use specific type here
-  const handleSearch = (e: any) => {
-    const { value } = e.target;
-
+  const handleSearch = (value: string) => {
     const filteredUsers = data?.Users.filter((user) => {
       return user.name.toLowerCase().includes(value) || user.shortBio.toLowerCase().includes(value);
     }) || [];
@@ -142,9 +139,9 @@ export function UserList() {
           <div>
             {renderPagination()}
           </div>
-          <div style={{margin: "16px 0"}}>
+          <div style={{ margin: "16px 0" }}>
             <label>Search</label>
-            <input type="text" value={term} onChange={handleSearch} />
+            <input type="text" value={term} onChange={(e) => handleSearch(e.target.value)} />
           </div>
           <div>
             <label>
